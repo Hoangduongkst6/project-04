@@ -64,6 +64,74 @@ body {
     padding-top: 28px;
     background-color: var(--primary-color);
 }
+
+/* Bars */
+.bars {
+    font-size: 2.8rem;
+    fill: #000958;
+    cursor: pointer;
+    display: none;
+}
+
+.bars__input:checked ~ .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 9;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 99;
+    padding-top: 24px;
+    translate: -100%;
+    opacity: 0;
+    transition: translate .5s, opacity .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+
+.bars__input:checked ~ .drawer {
+    translate: 0%;
+    opacity: 1;
+} 
+
+.drawer__logo-link {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.drawer__logo {
+    width: 104px;
+    height: 38px;
+}
+
+.drawer__close {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    font-size: 2.8rem;
+    margin-right: 24px;
+}
+
+.drawer__nav {
+    width: 100%;
+}
+
+.drawer__nav-list {
+    padding-top: 45px;
+}
+
 .logo {
     width: 105px;
     height: 38px;
@@ -87,7 +155,20 @@ body {
     text-shadow: 1px 0 0 #000958;
 }
 
-.signup {
+.header__box {
+    display: flex;
+    align-items: center;
+}
+
+.header__signin {
+    padding: 8px 18px;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #5e6085;
+}
+
+.header__signup {
     width: 117px;
     height: 50px;
     border-radius: 25px;
@@ -101,7 +182,7 @@ body {
     line-height: 14px;
 }
 
-.signup:hover  {
+.header__signup:hover  {
     opacity: .7;
 }
 
@@ -116,6 +197,7 @@ body {
 
 .hero__left {
     position: relative;
+    margin-bottom: 94px;
 }
 
 .hero__images {
@@ -280,7 +362,6 @@ body {
     font-weight: 500;
     line-height: 16px;
     text-decoration-line: underline;
-    margin-left: 24px;
 }
 
 /* About */
@@ -305,9 +386,8 @@ body {
     margin-bottom: 24px;
 }
 
-.hero__desc {
+.about__desc {
     width: 431px;
-    margin-top: 24px;
 }
 
 .about__group {
@@ -335,9 +415,6 @@ body {
     align-items: center;
     justify-content: center;
     color: #fff;
-}
-
-.about-shadow {
     box-shadow: 0 0 4px rgba(255, 93, 49, .6);
 }
 
@@ -370,6 +447,7 @@ body {
     bottom: 0;
     left: 50%;
     translate: -50% 0;
+    z-index: 1;
 }
 
 .about__img:nth-child(2) {
@@ -378,6 +456,7 @@ body {
     position: absolute;
     top: -66px;
     right: -51px;
+    z-index: -1;
 }
 
 .about-rectangle__img {
@@ -396,6 +475,7 @@ body {
     top: -58px;
     left: -92px;
     padding: 30px 26px;
+    z-index: 2;
 }
 
 .about-rectangle__img {
@@ -424,7 +504,10 @@ body {
 }
 
 .hero__active {
+    display: flex;
+    align-items: center;
     margin-top: 38px;
+    column-gap: 24px;
 }
 
 /* Feature */
@@ -537,6 +620,7 @@ body {
 
 .feature__desc {
     margin-top: 24px;
+    
 }
 
 
@@ -643,9 +727,11 @@ body {
 }
 
 .services__top {
-    text-align: center;
     row-gap: 15px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        text-align: center;
 }
 
 .services__body {
@@ -654,9 +740,10 @@ body {
     justify-content: space-between;
 }
 
-.services__left {
+.services__left,
+.services__right {
     display: grid;
-    row-gap: 24px;
+    gap: 24px;
 }
 
 .services__introduce {
@@ -730,6 +817,8 @@ body {
     bottom: 0;
     left: 50%;
     translate: -50% 0;
+    width: 447px;
+height: 621px;
 }
 
 .services__cta {
@@ -743,11 +832,6 @@ body {
 .services__cta:hover {
     background: #FF5B2E;
     color: #fff;
-}
-
-.services__right {
-    display: grid;
-    row-gap: 24px;
 }
 
 /* Group section */
@@ -767,7 +851,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 45px;
-    column-gap: 60px;
+    gap: 60px;
 }
 
 .group__item {
@@ -1025,6 +1109,7 @@ body {
     display: flex;
     align-items: center;
     margin-top: 113px;
+    justify-content: center;
 }
 
 .reviews__next {
@@ -1160,7 +1245,7 @@ body {
 .blog__list {
     display: flex;
     margin-top: 54px;
-    column-gap: 48px;
+    gap: 48px;
 }
 
 .blog__image {
